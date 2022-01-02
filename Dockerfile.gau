@@ -1,0 +1,13 @@
+# Build image: golang:1.14-alpine3.13
+FROM golang:1.17-alpine
+
+RUN go install -v github.com/lc/gau/v2/cmd/gau@latest && \
+    ln -s /root/go/bin/gau /usr/local/bin/gau
+
+RUN adduser \
+    --gecos "" \
+    --disabled-password \
+    gau
+
+USER gau
+ENTRYPOINT ["gau"]
