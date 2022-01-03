@@ -53,7 +53,7 @@ def gau_exec(local_client, domain_name, image_tag):
                                             "--blacklist", "ttf,woff,svg,png",
                                             "--json",
                                             "--o",
-                                            "/dev/shm/{0}".format(domain_name+"_gau.txt")],
+                                            "/dev/shm/{0}".format("gau_"+domain_name+"_output.txt")],
                                      volumes={
                                          '/tmp/gau_scan': {
                                              'bind': '/dev/shm', 'mode': 'rw'}},
